@@ -1,0 +1,63 @@
+.cardContainer {
+  width: 100%;
+}
+
+.fruitCard {
+  overflow: hidden;
+  transition: all 0.2s ease;
+  padding: 0 !important;
+  height: 100%;
+  max-width: 280px;
+  cursor: pointer;
+}
+
+.fruitCard:hover {
+  box-shadow: var(--shadow-6);
+  transform: translateY(-2px);
+}
+
+.fruitCard:focus-within {
+  outline: 2px solid var(--accent-8);
+  outline-offset: 2px;
+}
+
+.fruitCardButton {
+  display: block;
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.fruitCardButton:focus {
+  outline: 2px solid var(--accent-8);
+  outline-offset: 2px;
+  border-radius: var(--radius-3);
+}
+
+.fruitImage {
+  display: block;
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  height: 240px;
+  background-color: var(--color-panel);
+}
+
+.cardContent {
+  padding: var(--space-4);
+}
+
+.fruitDescription {
+  margin: 0;
+  font-size: var(--font-size-2);
+  color: var(--gray-11);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}

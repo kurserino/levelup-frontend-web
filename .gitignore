@@ -50,6 +50,13 @@ cypress/.cache/
 !.yarn/sdks
 !.yarn/versions
 
+# Also ignore Yarn folders in nested workspaces
+**/.yarn/*
+!**/.yarn/releases
+!**/.yarn/plugins
+!**/.yarn/sdks
+!**/.yarn/versions
+
 # macOS
 .DS_Store
 

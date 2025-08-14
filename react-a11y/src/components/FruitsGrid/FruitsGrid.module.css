@@ -1,0 +1,23 @@
+/* FruitsGrid Component Styles */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
+}
+
+.section {
+  /* Additional section styles can be added here if needed */
+}
+
+.sectionTitle {
+  /* Screen reader only title styles */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

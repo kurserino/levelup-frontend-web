@@ -1,0 +1,1 @@
+export { FruitCard } from "./FruitCard";

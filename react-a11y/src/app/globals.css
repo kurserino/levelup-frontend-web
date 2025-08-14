@@ -1,0 +1,71 @@
+/* Custom CSS variables to complement Radix theme tokens */
+:root {
+  /* System color scheme preference so Radix Theme can inherit */
+  color-scheme: light dark;
+
+  /* Additional shadows for custom components */
+  --custom-shadow-card: 0 4px 12px -4px rgba(22, 23, 24, 0.12),
+    0 2px 4px -2px rgba(22, 23, 24, 0.08);
+  --custom-shadow-dialog: 0 20px 50px -12px rgba(22, 23, 24, 0.25),
+    0 8px 16px -8px rgba(22, 23, 24, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom animations for dialogs */
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentShow {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Utility classes */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Screen reader only classes - keeping for backwards compatibility */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
