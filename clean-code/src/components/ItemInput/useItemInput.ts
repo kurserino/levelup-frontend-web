@@ -1,17 +1,18 @@
 import { useCallback, useState } from "react";
 
 export function useItemInput(
-  cb?: (t: string) => void
+  onCreate?: (text: string) => void
 ) {
-  const [v, setV] = useState<string>("");
+  const [value, setValue] = useState<string>("");
 
-  const upd = useCallback(() => {
-    cb?.(v);
-    setV("");
-  }, [v, cb]);
+  const handleCreate = useCallback(() => {
+    const trimmed = value.trim();
+    if (!trimmed) return;
+    onCreate?.(trimmed);
+    setValue("");
+  }, [value, onCreate]);
 
-
-  return { v, setV, upd };
+  return { value, setValue, handleCreate };
 }
 
 
