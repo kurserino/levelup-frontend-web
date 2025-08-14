@@ -9,7 +9,7 @@ const path = require('path');
 const inquirer = require('inquirer');
 const { spawn } = require('child_process');
 
-const ROOT_DIR = path.resolve(__dirname, '..');
+const ROOT_DIR = path.resolve(__dirname);
 const PROJECTS = [
   { label: 'clean-code', dir: 'clean-code' },
   { label: 'react-a11y', dir: 'react-a11y' },
@@ -92,7 +92,7 @@ async function promptProjectSelection(scriptName, extraArgs) {
 function main() {
   const [, , scriptName, ...rest] = process.argv;
   if (!scriptName) {
-    console.error('Usage: node scripts/cli.js <scriptName> [-- ...args]');
+    console.error('Usage: node cli.js <scriptName> [-- ...args]');
     process.exit(1);
   }
 

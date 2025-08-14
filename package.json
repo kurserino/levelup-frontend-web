@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/cli.js dev",
-    "build": "node scripts/cli.js build",
-    "start": "node scripts/cli.js start",
-    "lint": "node scripts/cli.js lint",
-    "test": "node scripts/cli.js test"
+    "dev": "node cli.js dev",
+    "build": "node cli.js build",
+    "start": "node cli.js start",
+    "lint": "node cli.js lint",
+    "test": "node cli.js test"
   },
   "dependencies": {
     "inquirer": "^8.2.6"
