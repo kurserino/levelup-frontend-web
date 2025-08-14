@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ESLint cache
+.eslintcache
+
+# Coverage (Jest / React Testing Library / Cypress instrumentation)
+coverage/
+.nyc_output/
+
+# Build output (React / bundlers)
+build/
+dist/
+
+# Caches and temp
+.cache/
+.tmp/
+.temp/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Cypress artifacts
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+cypress/reports/
+cypress/.cache/
+
+# Yarn (Berry) & PnP
+.pnp.*
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# macOS
+.DS_Store
+
+
