@@ -1,0 +1,41 @@
+{
+  "name": "react-testing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "test": "vitest --run",
+    "test:ui": "vitest --ui",
+    "coverage": "vitest --run --coverage",
+    "e2e": "cypress run",
+    "e2e:open": "cypress open"
+  },
+  "dependencies": {
+    "next": "14.2.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "clsx": "^2.1.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/node": "^20.14.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "cypress": "^13.13.2",
+    "@testing-library/cypress": "^10.0.2",
+    "eslint": "^9.8.0",
+    "eslint-config-next": "^14.2.4",
+    "jsdom": "^24.1.0",
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.4"
+  }
+}
+
+

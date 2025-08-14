@@ -1,0 +1,95 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #0b1220;
+  border: 1px solid #1f2a44;
+  border-radius: 12px;
+  padding: 24px;
+  width: 360px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-weight: 700;
+  margin: 0;
+}
+
+.closeButton {
+  background: transparent;
+  color: #94a3b8;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.closeIcon {
+  font-size: 24px;
+  display: block;
+}
+
+.emojiRow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.emojiChar {
+  font-size: 56px;
+}
+
+.name {
+  margin: 0;
+}
+
+.category {
+  margin: 0;
+  color: #94a3b8;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #1f2a44;
+}
+
+.navButton {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #111827;
+  color: #ffffff;
+  border: 1px solid #1f2a44;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.navButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.navIcon {
+  font-size: 22px;
+  line-height: 1;
+}

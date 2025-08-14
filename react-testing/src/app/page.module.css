@@ -1,0 +1,59 @@
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.searchInput {
+  background: #0b1220;
+  border: 1px solid #1f2a44;
+  border-radius: 8px;
+  color: var(--foreground);
+  padding: 8px 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.emojiCard {
+  background: #0b1220;
+  border: 1px solid #1f2a44;
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.emoji {
+  font-size: 40px;
+}
+
+.name {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.kbd {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+
