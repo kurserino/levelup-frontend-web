@@ -53,4 +53,21 @@ cypress/.cache/
 # macOS
 .DS_Store
 
+## Next.js
+# Build output and artifacts
+.next/
+out/
+.vercel/
+
+# Turbopack cache (Next.js)
+.turbo/
+
+## SWC
+.swc/
+
+## Vitest
+.vitest/
+
+## TypeScript
+*.tsbuildinfo
 
