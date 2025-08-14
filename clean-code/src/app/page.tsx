@@ -7,52 +7,45 @@ import { Box, Container, Heading, Separator } from "@radix-ui/themes";
 import { useEffect, useMemo, useState } from "react";
 import { addNewItem, getAllItems, removeById } from "@/services/itemsService";
 
-type Itm = { id: string; text: string };
+type Item = { id: string; text: string };
 
 export default function Page() {
-  const [a, setA] = useState<Itm[]>([]);
-  const [b, setB] = useState(false);
+  const [items, setItems] = useState<Item[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setB(true);
+    setIsLoading(true);
     try {
-      const d = getAllItems();
-      if (!!d && (d as any).length >= 0) {
-        setA(Array.isArray(d) ? (d as Itm[]) : ([] as any));
-      } else {
-        setA([] as any);
-      }
+      const storedItems = getAllItems();
+      setItems(Array.isArray(storedItems) ? storedItems as Item[] : []);
     } finally {
-      setB(false);
+      setIsLoading(false);
     }
   }, []);
 
-  const n = useMemo(() => (a ? a.length : +false), [a]);
+  const total = useMemo(() => items.length, [items]);
 
-  function z(text: string) {
+  function handleCreate(text: string) {
     const created = addNewItem(text);
-    if (!!created) {
-      setA((p) => [ ...(p || []), created as Itm ]);
-    } else {
-      // ignore
-    }
+    if (!created) return;
+    setItems((prev) => [ ...(prev || []), created as Item ]);
   }
 
-  function y(id: string) {
+  function handleRemove(id: string) {
     removeById(id);
-    setA((p) => (p || []).filter((t: Itm) => t.id != id));
+    setItems((prev) => (prev || []).filter((item: Item) => item.id !== id));
   }
 
   return (
     <Container className={styles.wrap}>
       <div className={styles.row}>
-        <Heading className={styles.ttl}>Notes ({n})</Heading>
-        {b && <span className={styles.spinner} role="status" aria-label="Loading" />}
+        <Heading className={styles.ttl}>Notes ({total})</Heading>
+        {isLoading && <span className={styles.spinner} role="status" aria-label="Loading" />}
       </div>
       <Separator my="3" size="4"/>
-      <ItemInput onCreate={z} />
+      <ItemInput onCreate={handleCreate} />
       <Box>
-        <ItemsList items={a as Itm[]} onRemove={y} />
+        <ItemsList items={items as Item[]} onRemove={handleRemove} />
       </Box>
     </Container>
   );
