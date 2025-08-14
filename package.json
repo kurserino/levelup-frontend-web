@@ -1,5 +1,15 @@
 {
+  "name": "levelup-frontend-web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/cli.js dev",
+    "build": "node scripts/cli.js build",
+    "start": "node scripts/cli.js start",
+    "lint": "node scripts/cli.js lint",
+    "test": "node scripts/cli.js test"
+  },
   "dependencies": {
-    "@radix-ui/themes": "^3.2.1"
+    "inquirer": "^8.2.6"
   }
 }
