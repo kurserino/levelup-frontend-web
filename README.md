@@ -8,9 +8,9 @@ Repositório para armazenar os projetos de conclusão do curso Front-end (Web) d
 - **React Accessibility (a11y)**: [react-a11y](./react-a11y/)
 - **React Frontend Testing (TDD, Vitest, Cypress)**: [react-testing](./react-testing/)
 
-Cada pasta contém:
-- `README.md` com a descrição do curso, espaço para listar os projetos e os respectivos links.
-- `REPORT.md` com um relatório detalhado sobre o projeto.
+Cada projeto contém:
+- `README.md` com instruções.
+- `REPORT.md` com relatório detalhado.
 
 ### Como executar os projetos
 
@@ -21,19 +21,22 @@ Cada pasta contém:
 - Na raiz (para o CLI):
 
 ```bash
-npm install
+yarn
 ```
 
-- Em cada subprojeto (dentro da pasta do projeto):
-
+- Em cada subprojeto (na pasta correspondente):
+ 
+ 
 ```bash
-# Exemplo com npm
-cd clean-code && npm install
-cd react-a11y && npm install
+# Exemplo com yarn
+cd clean-code && yarn
+cd react-a11y && yarn
+cd react-testing && yarn
 
 # Ou com yarn
 cd clean-code && yarn
 cd react-a11y && yarn
+cd react-testing && yarn
 ```
 
 2) **Comandos principais a partir da raiz (seleção interativa ou via flag)**
@@ -41,22 +44,22 @@ cd react-a11y && yarn
 - Interativo:
 
 ```bash
-npm run dev
+yarn run dev
 ```
 
 - Não interativo (use `--project=` para escolher o projeto):
 
 ```bash
 # Desenvolvimento
-npm run dev -- --project=clean-code
+yarn run dev -- --project=clean-code
 
 # Build de produção
-npm run build -- --project=clean-code
+yarn run build -- --project=clean-code
 
 # Lint
-npm run lint -- --project=clean-code
+yarn run lint -- --project=clean-code
 
 # Testes 
-npm run test -- --project=react-a11y
+yarn run test -- --project=react-a11y
 ```
 
