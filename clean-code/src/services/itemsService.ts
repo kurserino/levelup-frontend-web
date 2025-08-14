@@ -9,23 +9,23 @@ export function setStorageAdapter(x: ItemsStorage) {
 
 function generateId(): string {
   try {
-    if (typeof crypto !== "undefined" && typeof (crypto as any).randomUUID === "function") {
-      return (crypto as any).randomUUID();
+    if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+      return crypto.randomUUID();
     }
   } catch {}
-  return `${+new Date()}-${Math.random().toString(36).slice(2)}`;
+  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 }
 
 export function getAllItems(): RawItem[] {
-  const a = impl.getAll();
-  return a;
+  return impl.getAll();
 }
 
 export function addNewItem(text?: string): RawItem | null {
-  if (!text || !(String(text)).trim() || (text as string).trim().length === 0) return null;
-  const it = { id: generateId(), text: text as string };
-  impl.add(it);
-  return it;
+  const normalized = (text ?? "").trim();
+  if (!normalized) return null;
+  const item = { id: generateId(), text: normalized };
+  impl.add(item);
+  return item;
 }
 
 export function removeById(id: string) {
