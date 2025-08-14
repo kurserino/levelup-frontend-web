@@ -1,0 +1,33 @@
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.ttl {
+  font-weight: 700
+}
+
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-top-color: #555;
+  border-radius: 50%;
+  animation: spin .6s linear infinite;
+  margin-left: 8px
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg)
+  }
+}

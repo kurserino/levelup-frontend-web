@@ -1,0 +1,21 @@
+.box {
+  margin-top: 8px
+}
+
+.itm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: var(--color-panel, var(--gray-1));
+  border: 1px solid var(--color-border, var(--gray-a6));
+  border-radius: 8px;
+  margin-bottom: 8px
+}
+
+.t {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 70%
+}
