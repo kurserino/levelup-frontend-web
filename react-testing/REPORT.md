@@ -20,7 +20,7 @@ Criar uma aplicação Next.js com listagem de emojis, navegação por teclado e 
 
 ## Funcionalidades
 - Busca por nome ou caractere do emoji.
-- Navegação por teclado: setas (esquerda/direita/cima/baixo), Enter (abrir), Esc (fechar).
+- Navegação por teclado: setas (esquerda/direita/cima/baixo) quando um item do grid (emoji) está focado; Enter (abrir), Esc (fechar).
 - Diálogo de detalhes com foco gerenciado pelo Radix UI.
 
 ## Testes Unitários (Vitest)
@@ -48,7 +48,7 @@ Meta: os arquivos críticos estão cobertos (>80%).
 - `emoji.cy.ts`: fluxo do usuário
   - Acessa a página
   - Busca por "cora"
-  - Usa setas e Enter para abrir o diálogo
+  - Usa setas (com um emoji focado) e Enter para abrir o diálogo
 
 Como executar (com o app rodando em `3000`):
 ```
