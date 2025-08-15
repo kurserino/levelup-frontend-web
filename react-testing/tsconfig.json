@@ -18,7 +18,9 @@
     "jsx": "preserve",
     "types": [
       "vitest/globals",
-      "@testing-library/jest-dom"
+      "@testing-library/jest-dom",
+      "cypress",
+      "@testing-library/cypress"
     ],
     "incremental": true,
     "plugins": [
@@ -30,6 +32,7 @@
   "include": [
     "next-env.d.ts",
     "src/**/*",
+    "cypress/**/*",
     "vitest.config.ts",
     ".next/types/**/*.ts"
   ],

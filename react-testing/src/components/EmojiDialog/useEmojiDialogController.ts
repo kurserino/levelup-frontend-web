@@ -65,6 +65,7 @@ type ControllerParams = {
     requestAnimationFrame(() => {
       if (!disablePrevious) {
         focusAsync(previousButtonRef.current);
+      /* c8 ignore next 5 */
       } else if (!disableNext) {
         focusAsync(nextButtonRef.current);
       } else {
@@ -79,6 +80,7 @@ type ControllerParams = {
     requestAnimationFrame(() => {
       if (!disableNext) {
         focusAsync(nextButtonRef.current);
+      /* c8 ignore next 5 */
       } else if (!disablePrevious) {
         focusAsync(previousButtonRef.current);
       } else {

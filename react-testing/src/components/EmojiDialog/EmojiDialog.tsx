@@ -51,17 +51,14 @@ export function EmojiDialog({ open, emoji, onOpenChange, onPrevious, onNext, dis
               </button>
             </Dialog.Close>
           </div>
+          <Dialog.Description>
+            {emoji ? `${emoji.name} — ${emoji.category}. Use ArrowLeft and ArrowRight to navigate between emojis.` : ''}
+          </Dialog.Description>
           {emoji ? (
             <div className={styles.emojiRow}>
               <span className={styles.emojiChar}>{emoji.char}</span>
-              <div>
-                <p className={styles.name}>{emoji.name}</p>
-                <p className={styles.category}>{emoji.category}</p>
-              </div>
             </div>
-          ) : (
-            <p>No emoji selected</p>
-          )}
+          ) : null}
           <div className={styles.actions}>
             <button
               type="button"

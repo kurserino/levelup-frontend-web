@@ -1,5 +1,5 @@
 import { renderHook, act } from '@testing-library/react';
-import { useEmojiList } from '../components/EmojiList/useEmojiList';
+import { useEmojiList } from './useEmojiList';
 
 describe('useEmojiList', () => {
   it('filters by name', () => {

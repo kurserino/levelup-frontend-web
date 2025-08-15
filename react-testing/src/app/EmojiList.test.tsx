@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Page from '../app/page';
+import Page from './page';
 
 describe('Emoji Explorer', () => {
   it('filters by text and navigates with keyboard', async () => {
