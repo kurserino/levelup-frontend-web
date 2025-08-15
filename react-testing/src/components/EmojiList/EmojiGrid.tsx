@@ -3,6 +3,7 @@
 import React from 'react';
 import styles from '../../app/page.module.css';
 import clsx from 'clsx';
+import { useEmojiGridNavigation } from './useEmojiGridNavigation';
 
 export type EmojiItem = {
   name: string;
@@ -12,21 +13,27 @@ export type EmojiItem = {
 
 type Props = {
   emojis: EmojiItem[];
-  selectedIndex: number;
   onSelect: (index: number) => void;
 };
 
-export function EmojiGrid({ emojis, selectedIndex, onSelect }: Props) {
+export function EmojiGrid({ emojis, onSelect }: Props) {
+  const { gridRef, onKeyDownGrid } = useEmojiGridNavigation(onSelect);
+
   return (
-    <div className={styles.grid} role="grid" aria-label="Emojis">
+    <div
+      className={styles.grid}
+      role="grid"
+      aria-label="Emojis"
+      ref={gridRef}
+      onKeyDown={onKeyDownGrid}
+    >
       {emojis.map((emoji, index) => (
         <button
           key={`${emoji.char}-${index}`}
           role="gridcell"
           aria-label={`${emoji.name} ${emoji.char}`}
-          className={clsx(styles.emojiCard, index === selectedIndex && 'outline outline-2 outline-indigo-500')}
+          className={clsx(styles.emojiCard)}
           onClick={() => onSelect(index)}
-          data-testid={index === selectedIndex ? 'selected' : undefined}
         >
           <span className={styles.emoji}>{emoji.char}</span>
           <span className={styles.name}>{emoji.name}</span>

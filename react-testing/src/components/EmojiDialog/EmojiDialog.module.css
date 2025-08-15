@@ -33,14 +33,25 @@
   color: #94a3b8;
   border: none;
   border-radius: 8px;
-  padding: 8px;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
   line-height: 1;
   cursor: pointer;
 }
 
 .closeIcon {
   font-size: 24px;
+  line-height: 1;
   display: block;
+}
+
+.closeButton:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
 }
 
 .emojiRow {

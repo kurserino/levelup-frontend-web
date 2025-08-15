@@ -35,6 +35,8 @@ type ControllerParams = {
     focusAsync(contentRef.current);
   };
 
+  
+
   const handleContentKeyDown = useCallback(
     (event: React.KeyboardEvent) => {
       if (event.key === 'ArrowLeft') {

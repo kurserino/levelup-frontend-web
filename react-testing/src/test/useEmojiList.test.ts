@@ -8,13 +8,11 @@ describe('useEmojiList', () => {
     expect(result.current.filteredEmojis.every((e) => e.name.toLowerCase().includes('heart'))).toBe(true);
   });
 
-  it('navigates with arrows and opens/closes dialog', () => {
+  it('opens and closes dialog via API', () => {
     const { result } = renderHook(() => useEmojiList());
-    act(() => result.current.handleKeyDown({ key: 'ArrowRight' } as any));
-    expect(result.current.selectedIndex).toBe(1);
-    act(() => result.current.handleKeyDown({ key: 'Enter' } as any));
+    act(() => result.current.openDialog(0));
     expect(result.current.isOpen).toBe(true);
-    act(() => result.current.handleKeyDown({ key: 'Escape' } as any));
+    act(() => result.current.closeDialog());
     expect(result.current.isOpen).toBe(false);
   });
 });

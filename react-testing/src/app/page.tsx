@@ -11,18 +11,16 @@ export default function Page() {
     filteredEmojis,
     search,
     setSearch,
-    selectedIndex,
     selectedEmoji,
     isOpen,
     closeDialog,
-    handleKeyDown,
     openDialog,
     selectPrevious,
     selectNext
   } = useEmojiList();
 
   return (
-    <main className={styles.container} onKeyDown={handleKeyDown} tabIndex={0} aria-label="Emoji Explorer">
+    <main className={styles.container} aria-label="Emoji Explorer">
       <div className={styles.header}>
         <h1 className={styles.title}>Emoji Explorer</h1>
         <input
@@ -34,13 +32,7 @@ export default function Page() {
         />
       </div>
 
-      <p className={styles.kbd}>Arrows: navigate | Enter: details | Esc: close</p>
-
-      <EmojiGrid
-        emojis={filteredEmojis}
-        selectedIndex={selectedIndex}
-        onSelect={openDialog}
-      />
+      <EmojiGrid emojis={filteredEmojis} onSelect={openDialog} />
 
       <EmojiDialog
         open={isOpen}
@@ -48,8 +40,9 @@ export default function Page() {
         onOpenChange={(open) => (open ? undefined : closeDialog())}
         onPrevious={selectPrevious}
         onNext={selectNext}
-        disablePrevious={selectedIndex <= 0}
-        disableNext={selectedIndex >= filteredEmojis.length - 1}
+        // disable buttons based on selectedEmoji index
+        disablePrevious={!selectedEmoji || filteredEmojis.findIndex(e => e === selectedEmoji) <= 0}
+        disableNext={!selectedEmoji || filteredEmojis.findIndex(e => e === selectedEmoji) >= filteredEmojis.length - 1}
         emojisLength={filteredEmojis.length}
       />
     </main>

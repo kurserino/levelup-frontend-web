@@ -14,13 +14,12 @@ describe('Emoji Explorer', () => {
     const grid = screen.getByRole('grid', { name: /emojis/i });
     expect(grid).toBeInTheDocument();
 
-    // focus on main to receive keydown
-    const main = screen.getByRole('main', { name: /emoji explorer/i });
-    main.focus();
-
-    fireEvent.keyDown(main, { key: 'ArrowRight' });
-    fireEvent.keyDown(main, { key: 'ArrowRight' });
-    fireEvent.keyDown(main, { key: 'Enter' });
+    // focus first emoji cell to start keyboard navigation
+    const firstCell = grid.querySelector('[role="gridcell"]') as HTMLElement;
+    firstCell.focus();
+    fireEvent.keyDown(grid, { key: 'ArrowRight' });
+    fireEvent.keyDown(grid, { key: 'ArrowRight' });
+    fireEvent.keyDown(grid, { key: 'Enter' });
 
     expect(await screen.findByRole('dialog', { name: /details/i })).toBeInTheDocument();
   });
