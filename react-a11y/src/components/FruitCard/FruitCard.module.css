@@ -39,12 +39,14 @@
 
 .fruitImage {
   display: block;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
   width: 100%;
   height: 240px;
   background-color: var(--color-panel);
 }
+
+/* removed custom imageContainer to restore default background and sizing */
 
 .cardContent {
   padding: var(--space-4);

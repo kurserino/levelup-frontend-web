@@ -12,7 +12,7 @@ export function FruitsGrid({ fruits }: FruitsGridProps) {
   const { gridRef, onKeyDownGrid } = useFruitGridNavigation();
 
   return (
-    <Section aria-labelledby="fruits-gallery">
+    <Section aria-labelledby="fruits-gallery" pt="0">
       <VisuallyHidden>
         <Heading as="h2" id="fruits-gallery">
           Fruits list
