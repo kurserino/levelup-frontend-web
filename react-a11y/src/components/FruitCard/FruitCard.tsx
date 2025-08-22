@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import { Card, Text, Box, Inset, Strong } from "@radix-ui/themes";
+import { Card, Text, Box, Inset, Strong, VisuallyHidden } from "@radix-ui/themes";
 import { Fruit } from "@/data/fruits";
 import { FruitDialog } from "../FruitsGrid/FruitDialog";
 import styles from "./FruitCard.module.css";
@@ -11,7 +11,7 @@ type FruitCardProps = {
   index?: number;
 };
 
-export function FruitCard({ fruit }: FruitCardProps) {
+export function FruitCard({ fruit, index }: FruitCardProps) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const handleCardClick = () => {
@@ -25,6 +25,9 @@ export function FruitCard({ fruit }: FruitCardProps) {
     }
   };
 
+  const cardPosition = index !== undefined ? `${index + 1}` : '';
+  const ariaLabel = `View details of ${fruit.name}.`;
+
   return (
     <div role="listitem" className={styles.cardContainer}>
       <Card
@@ -35,7 +38,7 @@ export function FruitCard({ fruit }: FruitCardProps) {
         onKeyDown={handleKeyDown}
         tabIndex={0}
         role="button"
-        aria-label={`View details of ${fruit.name}`}
+        aria-label={ariaLabel}
         aria-describedby={`fruit-description-${fruit.id}`}
       >
         <Inset clip="padding-box" side="top">
@@ -61,6 +64,11 @@ export function FruitCard({ fruit }: FruitCardProps) {
           >
             {fruit.description}
           </Text>
+          <VisuallyHidden>
+            <Text as="p" size="1" color="gray" mt="2">
+              Click or press Enter to view more details
+            </Text>
+          </VisuallyHidden>
         </Box>
       </Card>
 

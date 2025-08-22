@@ -1,5 +1,5 @@
 "use client";
-import { Select, TextField, Flex, Box, Text } from "@radix-ui/themes";
+import { Select, TextField, Flex, Box, Text, VisuallyHidden } from "@radix-ui/themes";
 
 type FruitFiltersProps = {
   search: string;
@@ -17,38 +17,49 @@ export function FruitFilters({
   return (
     <form
       role="search"
-      aria-label="Filter fruits"
+      aria-label="Filter and sort fruits in the gallery"
       onSubmit={(e) => e.preventDefault()}
     >
       <Flex direction="column" gap="4">
         <Box>
-          <Box as="label" display="block" mb="2">
-            <Text size="2" weight="medium">Search</Text>
-          </Box>
+          <label htmlFor="fruit-search" style={{ display: 'block', marginBottom: '8px' }}>
+            <Text size="2" weight="medium">Search fruits</Text>
+          </label>
           <TextField.Root
+            id="fruit-search"
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
-            placeholder="e.g., Apple"
+            placeholder="Type to search fruits, e.g., Apple"
             variant="soft"
+            aria-describedby="search-help"
           />
+          <VisuallyHidden>
+            <Text id="search-help" size="1" color="gray" mt="1">
+              Search fruits by name or description
+            </Text>
+          </VisuallyHidden>
         </Box>
 
         <Box>
-          <Box as="label" display="block" mb="2">
-            <Text size="2" weight="medium">Sort by</Text>
-          </Box>
+          <label htmlFor="fruit-sort" style={{ display: 'block', marginBottom: '8px' }}>
+            <Text size="2" weight="medium">Sort fruits by name</Text>
+          </label>
           <Select.Root
             value={sortBy}
             onValueChange={(v) =>
               onSortByChange(v as FruitFiltersProps["sortBy"])
             }
           >
-            <Select.Trigger variant="soft" aria-label="Select sort order" />
+            <Select.Trigger
+              id="fruit-sort"
+              variant="soft"
+              aria-label="Select sort order for fruits"
+            />
             <Select.Content>
               <Select.Group>
-                <Select.Label>Name</Select.Label>
-                <Select.Item value="name-asc">A → Z</Select.Item>
-                <Select.Item value="name-desc">Z → A</Select.Item>
+                <Select.Label>Sort by name</Select.Label>
+                <Select.Item value="name-asc">A to Z</Select.Item>
+                <Select.Item value="name-desc">Z to A</Select.Item>
               </Select.Group>
             </Select.Content>
           </Select.Root>

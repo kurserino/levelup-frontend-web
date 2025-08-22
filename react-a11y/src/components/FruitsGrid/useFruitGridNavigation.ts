@@ -8,7 +8,7 @@ export function useFruitGridNavigation() {
     if (!gridRef.current) return;
 
     const focusableElements = gridRef.current.querySelectorAll(
-      '[role="listitem"] .fruit-card-button'
+      '[role="listitem"] [role="button"]'
     );
 
     const currentElement = document.activeElement;
@@ -73,7 +73,11 @@ export function useFruitGridNavigation() {
   const getColumnsCount = (): number => {
     if (!gridRef.current) return 1;
 
-    const gridStyles = window.getComputedStyle(gridRef.current);
+    // Try to get the Grid element inside the container
+    const gridElement = gridRef.current.querySelector('[role="list"]');
+    if (!gridElement) return 1;
+
+    const gridStyles = window.getComputedStyle(gridElement);
     const gridTemplateColumns = gridStyles.gridTemplateColumns;
 
     if (gridTemplateColumns && gridTemplateColumns !== "none") {
@@ -81,11 +85,11 @@ export function useFruitGridNavigation() {
     }
 
     // Fallback: calculate based on element widths
-    const children = gridRef.current.children;
+    const children = gridElement.children;
     if (children.length === 0) return 1;
 
     const firstChild = children[0] as HTMLElement;
-    const containerWidth = gridRef.current.offsetWidth;
+    const containerWidth = (gridElement as HTMLElement).offsetWidth;
     const childWidth = firstChild.offsetWidth;
     const gap = parseInt(gridStyles.gap) || 0;
 

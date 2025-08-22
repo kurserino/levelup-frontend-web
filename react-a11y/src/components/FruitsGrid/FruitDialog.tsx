@@ -47,7 +47,7 @@ export function FruitDialog({
                 variant="ghost"
                 color="gray"
                 size="2"
-                aria-label="Close dialog"
+                aria-label="Close fruit details dialog"
               >
                 <Cross2Icon />
               </IconButton>
@@ -83,7 +83,9 @@ export function FruitDialog({
           {/* Actions */}
           <Flex gap="3" justify="end" className={styles.dialogActions}>
             <Dialog.Close asChild>
-              <Button variant="solid">Close</Button>
+              <Button variant="solid" aria-label="Close dialog and return to fruits gallery">
+                Close
+              </Button>
             </Dialog.Close>
           </Flex>
         </Dialog.Content>
