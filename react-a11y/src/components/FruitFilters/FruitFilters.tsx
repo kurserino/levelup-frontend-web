@@ -22,9 +22,9 @@ export function FruitFilters({
     >
       <Flex direction="column" gap="4">
         <Box>
-          <Text as="label" size="2" weight="medium" mb="2">
-            Search
-          </Text>
+          <Box as="label" display="block" mb="2">
+            <Text size="2" weight="medium">Search</Text>
+          </Box>
           <TextField.Root
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
@@ -34,9 +34,9 @@ export function FruitFilters({
         </Box>
 
         <Box>
-          <Text as="label" size="2" weight="medium" mb="2">
-            Sort by
-          </Text>
+          <Box as="label" display="block" mb="2">
+            <Text size="2" weight="medium">Sort by</Text>
+          </Box>
           <Select.Root
             value={sortBy}
             onValueChange={(v) =>

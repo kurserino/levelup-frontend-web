@@ -26,7 +26,12 @@ export default function HomePage() {
         <ThemeToggle />
       </header>
 
-      <Flex gap="6" align="start" wrap="nowrap">
+      <Flex
+        gap={{ initial: "6", lg: "4" }}
+        align={{ initial: "stretch", lg: "start" }}
+        wrap="nowrap"
+        direction={{ initial: "column", lg: "row" }}
+      >
         <Box asChild>
           <aside className={styles.sidebar}>
             <VisuallyHidden>

@@ -14,7 +14,17 @@
 }
 
 .sidebar {
-  width: 280px;
+  width: 100%;
+  flex: none;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    min-width: 280px;
+    flex: 0 0 100px;
+    align-self: flex-start;
+    height: auto;
+  }
 }
 
 .srOnly {

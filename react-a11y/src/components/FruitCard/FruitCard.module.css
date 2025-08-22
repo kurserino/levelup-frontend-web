@@ -7,7 +7,7 @@
   transition: all 0.2s ease;
   padding: 0 !important;
   height: 100%;
-  max-width: 280px;
+  width: 100%;
   cursor: pointer;
 }
 

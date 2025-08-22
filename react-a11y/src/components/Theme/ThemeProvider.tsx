@@ -14,6 +14,7 @@ type Appearance = "light" | "dark" | "inherit";
 
 type AppThemeContextValue = {
   appearance: Appearance;
+  resolvedAppearance: Exclude<Appearance, "inherit">;
   setAppearance: (_appearance: Appearance) => void;
   toggleAppearance: () => void;
 };
@@ -108,16 +109,16 @@ export function AppThemeProvider({
     });
   }, [systemAppearance]);
 
-  const value = useMemo<AppThemeContextValue>(
-    () => ({ appearance, setAppearance, toggleAppearance }),
-    [appearance, setAppearance, toggleAppearance]
-  );
-
   // Resolve the effective appearance passed to Radix Theme.
   // When set to inherit, we explicitly provide the current system value
   // to avoid light-first flashes on dark systems.
   const resolvedAppearance: Exclude<Appearance, "inherit"> =
     appearance === "inherit" ? systemAppearance : appearance;
+
+  const value = useMemo<AppThemeContextValue>(
+    () => ({ appearance, resolvedAppearance, setAppearance, toggleAppearance }),
+    [appearance, resolvedAppearance, setAppearance, toggleAppearance]
+  );
 
   return (
     <AppThemeContext.Provider value={value}>

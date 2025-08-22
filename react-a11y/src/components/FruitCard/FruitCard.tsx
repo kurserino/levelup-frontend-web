@@ -26,7 +26,7 @@ export function FruitCard({ fruit }: FruitCardProps) {
   };
 
   return (
-    <div role="listitem">
+    <div role="listitem" className={styles.cardContainer}>
       <Card
         size="3"
         variant="surface"

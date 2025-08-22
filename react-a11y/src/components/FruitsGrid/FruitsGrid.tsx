@@ -12,16 +12,16 @@ export function FruitsGrid({ fruits }: FruitsGridProps) {
   const { gridRef, onKeyDownGrid } = useFruitGridNavigation();
 
   return (
-    <Section aria-labelledby="fruits-gallery" pt="0">
+    <Section aria-labelledby="fruits-gallery" pt="0" pb="0" mt="0" mb="0">
       <VisuallyHidden>
-        <Heading as="h2" id="fruits-gallery">
+        <Heading as="h2" id="fruits-gallery" m="0">
           Fruits list
         </Heading>
       </VisuallyHidden>
       <Grid
         role="list"
         aria-label="Fruits"
-        columns={{ initial: "1", sm: "2", md: "3", lg: "4" }}
+        columns={{ initial: "2", sm: "2", md: "3", lg: "4" }}
         gap="4"
         width="100%"
         ref={gridRef}
